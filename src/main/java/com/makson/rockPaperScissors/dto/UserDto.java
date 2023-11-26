@@ -16,6 +16,6 @@ public class UserDto {
     private String password;
     private Integer total;
     private Integer wins;
-    private Integer ties;
-    private Integer loses;
+    private Integer draws;
+    private Integer lost;
 }

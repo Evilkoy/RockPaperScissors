@@ -1,7 +1,6 @@
 package com.makson.rockPaperScissors.controller;
 
 import com.makson.rockPaperScissors.dto.UserDto;
-import com.makson.rockPaperScissors.entity.User;
 import com.makson.rockPaperScissors.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@Controller /* I have to clean this code, a lot of refactoring*/
+@Controller
 public class MainController {
     @Autowired
     UserService userService;
