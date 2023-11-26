@@ -1,6 +1,5 @@
 package com.makson.rockPaperScissors.controller;
 
-import com.makson.rockPaperScissors.dto.UserDto;
 import com.makson.rockPaperScissors.service.UserService;
 import com.makson.rockPaperScissors.service.game.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
