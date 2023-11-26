@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <style>
+        .marginer {
+        margin-top: 3em;
+        margin-bottom: 3em;
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <div th:insert="blocks/header :: header"></div>
+    <h1 class="display-4 fw-normal text-body-emphasis text-center"><p th:text="|${title}|"></p></h1>
+</header>
+<main>
+    <div class="marginer container text-center">
+        <div class="row">
+            <div class="col">
+                <img th:src="@{/images/rock-paper-scissors-296854_640.png}" height="200" width="200"/>
+                <form action="#" data-th-action="@{/game}" data-th-object="${model}" method="post">
+                    <button type="submit" class="w-100 btn btn-lg btn-primary" name="action" value="rock">Rock</button>
+                </form>
+            </div>
+            <div class="col">
+                <img th:src="@{/images/rock-paper-scissors-296855_640.png}" height="200" width="200"/>
+                <form action="#" data-th-action="@{/game}" data-th-object="${model}" method="post">
+                    <button type="submit" class="w-100 btn btn-lg btn-primary" name="action" value="paper">Paper
+                    </button>
+                </form>
+            </div>
+            <div class="col">
+                <img th:src="@{/images/rock-paper-scissors-296853_640.png}" height="200" width="200"/>
+                <form action="#" data-th-action="@{/game}" data-th-object="${model}" method="post">
+                    <button type="submit" class="w-100 btn btn-lg btn-primary" name="action" value="scissors">Scissors
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <h1 class="display-4 fw-normal text-body-emphasis text-center"> Your Statistics</h1>
+    <div class="marginer container text-center">
+        <form th:object="${user}">
+            <div class="row">
+                <div class="col">
+                    <p>Games played: </p>
+                    <output th:text="*{total}"></output>
+                </div>
+                <div class="col">
+                    <p>Games won: </p>
+                    <output th:text="*{wins}">
+                        </output>
+                </div>
+                <div class="col">
+                    <p>Games lost: </p>
+                    <output th:text="*{loses}"></output>
+                </div>
+                <div class="col">
+                    <p>Games tied: </p>
+                    <output th:text="*{ties}">
+                    </output>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>
