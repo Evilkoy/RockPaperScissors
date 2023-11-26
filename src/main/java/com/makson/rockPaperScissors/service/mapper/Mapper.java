@@ -22,8 +22,8 @@ public class Mapper {
                 passwordEncoder.encode(dto.getPassword()),
                 dto.getTotal(),
                 dto.getWins(),
-                dto.getTies(),
-                dto.getLoses(),
+                dto.getDraws(),
+                dto.getLost(),
                 Arrays.asList(roleRepository.findByName("ROLE_USER")));
     }
 
@@ -34,7 +34,7 @@ public class Mapper {
                 user.getPassword(),
                 user.getTotal(),
                 user.getWins(),
-                user.getTies(),
-                user.getLoses());
+                user.getDraws(),
+                user.getLost());
     }
 }

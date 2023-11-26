@@ -29,8 +29,8 @@ public class UserService {
         }
         userDto.setTotal(0);
         userDto.setWins(0);
-        userDto.setTies(0);
-        userDto.setLoses(0);
+        userDto.setDraws(0);
+        userDto.setLost(0);
         userRepository.save(mapper.mapToUser(userDto));
         return "redirect:/login";
     }
@@ -45,9 +45,9 @@ public class UserService {
         if (result.equals("won"))
             user.setWins(user.getWins() + 1);
         if (result.equals("lost"))
-            user.setLoses(user.getLoses() + 1);
-        if (result.equals("tied"))
-            user.setTies(user.getTies() + 1);
+            user.setLost(user.getLost() + 1);
+        if (result.equals("draw"))
+            user.setDraws(user.getDraws() + 1);
         userRepository.save(user);
     }
 

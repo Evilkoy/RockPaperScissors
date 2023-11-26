@@ -15,14 +15,14 @@ public class GameService {
         return switch (result) {
             case ("won") -> "You Won!";
             case ("lost") -> "You Lost";
-            case ("tied") -> "Tied";
+            case ("tied") -> "Draw";
             default -> "Try again, please";
         };
     }
 
     private String getResult(String choice) {
         String opponentsChoice = getOpponentsChoice();
-        if (choice.equals(opponentsChoice)) return "tied";
+        if (choice.equals(opponentsChoice)) return "draw";
         else if (choice.equals("rock") && opponentsChoice.equals("scissors")) return "won";
         else if (choice.equals("paper") && opponentsChoice.equals("rock")) return "won";
         else if (choice.equals("scissors") && opponentsChoice.equals("paper")) return "won";
