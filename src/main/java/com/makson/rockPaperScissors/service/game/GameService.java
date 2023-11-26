@@ -15,7 +15,7 @@ public class GameService {
         return switch (result) {
             case ("won") -> "You Won!";
             case ("lost") -> "You Lost";
-            case ("tied") -> "Draw";
+            case ("draw") -> "Draw";
             default -> "Try again, please";
         };
     }
