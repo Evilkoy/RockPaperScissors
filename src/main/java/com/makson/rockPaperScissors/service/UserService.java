@@ -1,5 +1,6 @@
 package com.makson.rockPaperScissors.service;
 
+import com.makson.rockPaperScissors.constant.Constant;
 import com.makson.rockPaperScissors.dto.UserDto;
 import com.makson.rockPaperScissors.entity.User;
 import com.makson.rockPaperScissors.repository.UserRepository;
@@ -42,11 +43,11 @@ public class UserService {
     public void updateStatistic(String result) {
         User user = getLoggedUser();
         user.setTotal(user.getTotal() + 1);
-        if (result.equals("won"))
+        if (result.equals(Constant.WON))
             user.setWins(user.getWins() + 1);
-        if (result.equals("lost"))
+        if (result.equals(Constant.LOST))
             user.setLost(user.getLost() + 1);
-        if (result.equals("draw"))
+        if (result.equals(Constant.DRAW))
             user.setDraws(user.getDraws() + 1);
         userRepository.save(user);
     }

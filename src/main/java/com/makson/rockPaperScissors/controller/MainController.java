@@ -20,6 +20,7 @@ public class MainController {
     public String redirectToGamePage(Model model) {
         return "redirect:/game";
     }
+
     @GetMapping("/registration")
     public String getRegistrationPage(Model model) {
         model.addAttribute("user", new UserDto());
