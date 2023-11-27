@@ -1,5 +1,6 @@
 package com.makson.rockPaperScissors.controller;
 
+import com.makson.rockPaperScissors.exception.ResultException;
 import com.makson.rockPaperScissors.service.UserService;
 import com.makson.rockPaperScissors.service.game.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,11 @@ public class GameController {
 
     @PostMapping()
     public String showResults(@RequestParam(value = "action") String action, Model model) {
-        model.addAttribute("title", gameService.getStatus(action));
+        try {
+            model.addAttribute("title", gameService.getStatus(action));
+        } catch (ResultException exception) {
+            model.addAttribute("title", exception.getMessage());
+        }
         model.addAttribute("user", userService.getLoggedUserDto());
         return "Game";
     }

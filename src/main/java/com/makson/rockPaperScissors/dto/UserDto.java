@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Objects;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,4 +20,23 @@ public class UserDto {
     private Integer wins;
     private Integer draws;
     private Integer lost;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserDto userDto = (UserDto) o;
+        return Objects.equals(id, userDto.id)
+                && name.equals(userDto.name)
+                && Objects.equals(this.password, userDto.password)
+                && Objects.equals(this.total, userDto.total)
+                && Objects.equals(this.wins, userDto.wins)
+                && Objects.equals(this.draws, userDto.draws)
+                && Objects.equals(this.lost, userDto.lost);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, password, total, wins, draws, lost);
+    }
 }
