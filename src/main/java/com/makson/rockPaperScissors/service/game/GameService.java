@@ -12,7 +12,7 @@ public class GameService {
     @Autowired
     private UserService userService;
 
-    public String getStatus(String choice) throws ResultException {
+    public String processGame(String choice) throws ResultException {
         String result = getResult(choice);
         userService.updateStatistic(result);
         return switch (result) {
@@ -24,7 +24,7 @@ public class GameService {
     }
 
     private String getResult(String choice) {
-        String opponentsChoice = null;
+        String opponentsChoice;
         try {
             opponentsChoice = getOpponentsChoice();
         } catch (OpponentsChoiceException exception) {
