@@ -19,12 +19,7 @@ class GameServiceTest {
     @Test
     void processGame() throws ResultException {
         Mockito.mock(UserService.class);
-        String actual;
-        try {
-            actual = gameService.processGame("paper");
-        } catch (ResultException exception){
-            actual = exception.getMessage();
-        }
-        Assertions.assertNotEquals("Invalid result of the game", actual);
+        String actual = gameService.processGame("paper");
+        Assertions.assertEquals("Invalid result of the game", actual);
     }
 }

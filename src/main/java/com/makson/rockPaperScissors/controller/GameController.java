@@ -23,7 +23,7 @@ public class GameController {
     @GetMapping()
     public String showGamePage(Model model) {
         model.addAttribute("title", "Select the option");
-        model.addAttribute("user", userService.getLoggedUserDto
+        model.addAttribute("user", userService.getUserDto
                 (SecurityContextHolder.getContext().getAuthentication().getName()));
         return "Game";
     }
@@ -35,7 +35,7 @@ public class GameController {
         } catch (ResultException exception) {
             model.addAttribute("title", exception.getMessage());
         }
-        model.addAttribute("user", userService.getLoggedUserDto
+        model.addAttribute("user", userService.getUserDto
                 (SecurityContextHolder.getContext().getAuthentication().getName()));
         return "Game";
     }
