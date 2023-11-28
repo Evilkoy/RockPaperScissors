@@ -52,12 +52,12 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public UserDto getLoggedUserDto(String name) {
+    public UserDto getUserDto(String name) {
         return mapper.mapToUserDto
                 (userRepository.findByName(name));
     }
 
-    public User getLoggedUser() {
+    private User getLoggedUser() {
         return userRepository.findByName(SecurityContextHolder.getContext().getAuthentication().getName());
     }
 }
